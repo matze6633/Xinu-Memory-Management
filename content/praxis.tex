@@ -1,12 +1,26 @@
 % !TEX root = ../document.tex
-\section{Übertragung auf die betriebliche Praxis}
-\label{sec:Praxis}
+\section{Memory Management}
+\label{sec:MemoryManagement}
+Damit Anwendungen von der CPU ausgeführt werden können, muss das Betriebssystem der Anwendung einen Bereich des Hauptspeichers zuteilen. In diesem Speicherbereich befinden sich bei einem Rechner mit der Von-Neumann-Architektur einerseits die Befehle, sowie die Daten der Anwendung. Diese Zuteilung und Verwaltung des Speichers sind Aufgaben des Memory Managements und werden von dem Memory Manager des Betriebssystems durchgeführt. Der Begriff Speicherverwaltung umfasst im Prinzip auch die Verwaltung der Cache-Speicher in der CPU, da diese jedoch häufig durch die Hardware direkt verwaltet wird, liegt die Fokus dieser Ausarbeitung auf der Verwaltung des Hauptspeichers.
+
+Anschließend werden die einige Modelle der Speicherabstraktion vorgestellt, erläutert und ihre Vor- und Nachteile benannt.
+
+\subsection{Ohne Speicherabstraktion}
+\label{subsec:OhneSpeicherabstraktion}
 \blindtext
 
-\subsection{Teil 1}
-\label{subsec:Teil1}
+\subsection{Verwaltung von freiem Speicher}
+\label{subsec:VerwaltungFreiemSpeicher}
 \blindtext
 
-\subsection{Teil 2}
-\label{subsec:Teil2}
+\subsection{Adressr\"{a}ume}
+\label{subsec:Adressraeume}
+\blindtext
+
+\subsection{Virtuelle Adressr\"{a}ume}
+\label{subsec:VirtuelleAdressraeume}
+\blindtext
+
+\subsection{Buffer Pools}
+\label{subsec:BufferPools}
 \blindtext
