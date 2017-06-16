@@ -1,0 +1,26 @@
+% !TEX root = ../document.tex
+\section{Memory Management}
+\label{sec:MemoryManagement}
+Damit Anwendungen von der CPU ausgeführt werden können, muss das Betriebssystem der Anwendung einen Bereich des Hauptspeichers zuteilen. In diesem Speicherbereich befinden sich bei einem Rechner mit der Von-Neumann-Architektur einerseits die Befehle, sowie die Daten der Anwendung. Diese Zuteilung und Verwaltung des Speichers sind Aufgaben des Memory Managements und werden von dem Memory Manager des Betriebssystems durchgeführt. Der Begriff Speicherverwaltung umfasst im Prinzip auch die Verwaltung der Cache-Speicher in der CPU, da diese jedoch häufig durch die Hardware direkt verwaltet wird, liegt die Fokus dieser Ausarbeitung auf der Verwaltung des Hauptspeichers.
+
+Anschließend werden die einige Modelle der Speicherabstraktion vorgestellt, erläutert und ihre Vor- und Nachteile benannt.
+
+\subsection{Ohne Speicherabstraktion}
+\label{subsec:OhneSpeicherabstraktion}
+Das einfachste Modell der Speicherverwaltung besitzt keine Speicherabstraktion. Das heißt, dass Prozesse direkt auf die Speicheradressen des Hauptspeichers zugreifen. Der maximale Speicherverbrauch eines Prozesses ist in diesem Modell durch den physikalischen Hauptspeicher begrenzt, da ohne Speicherverwaltung ausschließlich der gesamte Prozess als ein Ganzes in den Hauptspeicher geladen werden kann. Angewendet wird dieses Modell beispielsweise in Embedded Systems, da die komplexität der Implementierung sehr gering ist. Jedoch birgt der unkontrollierte Zugriff der Anwendungen auf den physikalischen Speicher auch ein Risiko, da die Anwendung die Daten und Befehle des Betriebssystem überschreiben kann. Außerdem ist zu erwähnen, dass ohne Swapping des Hauptspeichers eine simultane  Ausführung von mehreren Anwendungen nicht möglich ist. Swapping bezeichnet hierbei die Auslagerung des gesamten Speichers einer Anwendung aus dem Hauptspeicher auf ein anderes Medium wie beispielsweise einer Festplatte.
+
+\subsection{Adressr\"{a}ume}
+\label{subsec:Adressraeume}
+Ein Modell das die simultane Ausführung von Prozessen ermöglicht ist die Speicherabstraktion Adressräume. Die Idee dieses Modells ist die Allokation eines Speicherbereiches zu einem Prozess und der dynamischen Relokation der Speicherbereiche. Einem Prozess wird beispielsweise der Adressbereich 128 bis 192 zugewiesen und einem anderen Prozess der Bereich 192 bis 224. Nun besteht das Problem, dass der Prozess wissen müsste an welche Stelle im Hauptspeicher geladen wird, damit Zugriffe und Sprünge der Anwendung auf die richtige Speicheradresse zugreifen kann. Das Problem löst das Adressraum Modell mit von Basis- und Limitregistern. Die Entwickler benutzten bei der Programmierung einer Anwendung einen Adressraum von 0 bis maximale Speichergröße. Sobald nun der Prozess ausgeführt wird, wird die Startadresse des Prozess in den Basisregister und die Größe des Prozesses in das Limitregister der CPU geschrieben. Bei der Ausführung einer Operation wird nun zu jeder Adresse der Basisregister addiert. Das Ergebnis dieser Addition bildet die physikalische Adresse im Hauptspeicher ab. Falls ein Prozess auf eine Speicheradresse außerhalb des Speicherbereiches des Prozesses zu greifen möchte, erfolgt ein Betriebssystem Interrupt und das Betriebssystem beendet der Prozess. Jedoch besteht auch bei der Implementierung von Adressraeumen mithilfe von Basis- und Limitregistern immernoch das Problem, dass der maximale Speicherbedarf eines Prozesses von dem physikalischen Speicher begrenzt ist. Eine Ausführung einer Anwendung oder mehrere simultan laufende Anwendungen die in Summe einen höheren Hauptspeicherverbrauch haben als der physikalische Speicher es zulässt ist nicht möglich.
+
+\subsection{Swapping}
+\label{subsec:Swapping}
+
+\subsection{Verwaltung von freiem Speicher}
+\label{subsec:VerwaltungFreiemSpeicher}
+
+\subsection{Virtuelle Adressr\"{a}ume}
+\label{subsec:VirtuelleAdressraeume}
+
+\subsection{Buffer Pools}
+\label{subsec:BufferPools}
