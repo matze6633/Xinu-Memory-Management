@@ -33,21 +33,21 @@ numbers=noendperiod % Den letzten Punkt nach einer Nummerierung entfernen (nach 
 	\listoffigures
 	\cleardoublepage
 	
-	\phantomsection
-	\listoftables
-	\cleardoublepage
+	%\phantomsection
+	%\listoftables
+	%\cleardoublepage
 	
 	\phantomsection
 	\lstlistoflistings
 	\cleardoublepage
 	
-	\newcommand{\abkvz}{Abkürzungsverzeichnis}
-	\renewcommand{\nomname}{\abkvz}
-	\section*{\abkvz}
-	\markboth{\abkvz}{\abkvz}
-	\addcontentsline{toc}{section}{\abkvz}
-	\input{abbreviations}
-	\clearpage
+	%\newcommand{\abkvz}{Abkürzungsverzeichnis}
+	%\renewcommand{\nomname}{\abkvz}
+	%\section*{\abkvz}
+	%\markboth{\abkvz}{\abkvz}
+	%\addcontentsline{toc}{section}{\abkvz}
+	%\input{abbreviations}
+	%\clearpage
 	
 	% content ---------------------------------------------------------------------
 	\pagenumbering{arabic}
@@ -56,7 +56,9 @@ numbers=noendperiod % Den letzten Punkt nach einer Nummerierung entfernen (nach 
 	% Literatur ------------------------------------------------------------------
 	\clearpage
 	\renewcommand{\refname}{Literaturverzeichnis}
-	%\bibliography{bibliography}
+	\bibliographystyle{plainnat}
+	\bibliography{bibliography}
+	\clearpage
 	\input{affidavit}
 	
 	% Anhang ---------------------------------------------------------------------
